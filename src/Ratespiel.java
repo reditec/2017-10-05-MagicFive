@@ -8,7 +8,7 @@ import java.util.Scanner;
  * String t, tipp: save user input
  *
  * @author Felix Bartling
- * @version 1.02 10/12/17
+ * @version 1.03 10/13/17
  * @since 10/05/2017
  */
 
@@ -16,22 +16,30 @@ public class Ratespiel {
 
     private Ratespiel() {
         System.out.println("Willkommen");
-        String t = input("Erraten Sie die Zahl: ");
 
-        //crashes if t is not numeric
-        int tipp = Integer.parseInt(t);
+        int tipp = 0;
 
-        if(tipp == 5) {
-            System.out.println("Gewonnen!");
-        }
-        else {
-            if(tipp > 5) {
-                System.out.println("Zu groß!");
+        while(tipp != 5) {
+
+            String t = input("Erraten Sie die Zahl: ");
+
+            //crashes if t is not numeric
+            tipp = Integer.parseInt(t);
+
+            if(tipp == 5) {
+                System.out.println("Gewonnen!");
             }
             else {
-                System.out.println("Zu klein!");
+                if(tipp > 5) {
+                    System.out.println("Zu groß!");
+                }
+                else {
+                    System.out.println("Zu klein!");
+                }
             }
         }
+
+
 
         System.out.println("Game over");
     }
