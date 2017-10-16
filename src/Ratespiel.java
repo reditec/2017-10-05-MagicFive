@@ -19,7 +19,7 @@ public class Ratespiel {
     private Ratespiel() {
         System.out.println("Willkommen");
 
-        int tipp = 0, guess = (int) (10 * Math.random());
+        int tipp = 0, guess = (int) (10 * Math.random() + 1);
 
         while(tipp != guess) {
 
