@@ -19,7 +19,7 @@ public class Ratespiel {
     private Ratespiel() {
         System.out.println("Willkommen");
 
-        int tipp = 0, guess = (int) (10 * Math.random() + 1);
+        int tipp = 0, guess = (int) (10 * Math.random() + 1), counter = 0;
 
         while(tipp != guess) {
 
@@ -28,8 +28,10 @@ public class Ratespiel {
             //crashes if t is not numeric
             tipp = Integer.parseInt(t);
 
+            counter++;
+
             if(tipp == guess) {
-                System.out.println("Gewonnen!");
+                System.out.println("Gewonnen. Sie haben " + counter + " Versuch(e) gebraucht.");
             }
             else {
                 if(tipp > guess) {
