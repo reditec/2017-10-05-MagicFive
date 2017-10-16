@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -8,7 +10,7 @@ import java.util.Scanner;
  * String t, tipp: save user input
  *
  * @author Felix Bartling
- * @version 1.03 10/13/17
+ * @version 1.04 10/16/17
  * @since 10/05/2017
  */
 
@@ -17,20 +19,20 @@ public class Ratespiel {
     private Ratespiel() {
         System.out.println("Willkommen");
 
-        int tipp = 0;
+        int tipp = 0, guess = (int) (10 * Math.random());
 
-        while(tipp != 5) {
+        while(tipp != guess) {
 
             String t = input("Erraten Sie die Zahl: ");
 
             //crashes if t is not numeric
             tipp = Integer.parseInt(t);
 
-            if(tipp == 5) {
+            if(tipp == guess) {
                 System.out.println("Gewonnen!");
             }
             else {
-                if(tipp > 5) {
+                if(tipp > guess) {
                     System.out.println("Zu groß!");
                 }
                 else {
@@ -49,6 +51,7 @@ public class Ratespiel {
         Scanner scanner = new Scanner(System.in);
         return scanner.next();
     }
+
 
     public static void main(String[] args) {
         Ratespiel meinRatespiel = new Ratespiel();
